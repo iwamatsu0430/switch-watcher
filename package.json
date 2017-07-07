@@ -1,0 +1,23 @@
+{
+  "name": "switch-watcher",
+  "version": "0.0.1",
+  "description": "watch nintendo switch's stock in online stores",
+  "main": "app.js",
+  "dependencies": {
+    "chromy": "^0.3.2",
+    "cron": "^1.2.1",
+    "opn": "^5.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chrome",
+    "headless",
+    "nintendo",
+    "switch"
+  ],
+  "author": "iwamatsu0430",
+  "license": "MIT"
+}
