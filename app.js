@@ -300,4 +300,4 @@ async function main () {
 }
 
 logger('Start Switch Watcher');
-new CronJob('0 */3 * * * *', main).start();
+new CronJob('0 */15 * * * *', main).start();
