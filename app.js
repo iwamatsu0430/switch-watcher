@@ -63,7 +63,7 @@ const shops = {
       name: 'ヨドバシカメラ:スプラトゥーン2セット',
       checkStore: client => {
         return client.evaluate(() => {
-          return document.querySelector('#js_buyBoxMain p').innerText !== '予約受付を終了しました';
+          return document.querySelector('#js_buyBoxMain p').innerText !== '予定数の販売を終了しました';
         });
       }
     },
