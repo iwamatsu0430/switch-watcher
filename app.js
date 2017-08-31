@@ -63,7 +63,7 @@ const shops = {
       name: 'ヨドバシカメラ:スプラトゥーン2セット',
       checkStore: client => {
         return client.evaluate(() => {
-          return document.querySelector('#js_buyBoxMain p').innerText !== '予約受付を終了しました';
+          return document.querySelector('#js_buyBoxMain p').innerText !== '予定数の販売を終了しました';
         });
       }
     },
@@ -211,7 +211,8 @@ const shops = {
       name: 'rakutenブックス:Joy-Con(L) ネオンブルー/(R) ネオンレッド',
       checkStore: client => {
         return client.evaluate(() => {
-          return document.querySelector('span.status').innerText.trim() !== 'ご注文できない商品*';
+          return document.querySelector('span.status').innerText.trim() !== 'ご注文できない商品*' &&
+            document.querySelector('span.status').innerText.trim() !== '販売期間外';
         });
       }
     },
@@ -229,7 +230,8 @@ const shops = {
       name: 'rakutenブックス:Joy-Con(L)/(R) グレー',
       checkStore: client => {
         return client.evaluate(() => {
-          return document.querySelector('span.status').innerText.trim() !== 'ご注文できない商品*';
+          return document.querySelector('span.status').innerText.trim() !== 'ご注文できない商品*' &&
+            document.querySelector('span.status').innerText.trim() !== '販売期間外';
         });
       }
     }
@@ -264,12 +266,12 @@ async function check(client, options) {
     } else {
       logger(`[${options.name}] \u001b[34mNow is Not the Time...\u001b[0m`);
     }
-  } catch(e) {
+  } catch (e) {
     logger(e);
   }
 }
 
-async function main () {
+async function main() {
   let chromy = new Chromy();
   await check(chromy, shops.nintendo);
   await check(chromy, shops.amazon);
